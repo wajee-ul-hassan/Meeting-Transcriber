@@ -6,8 +6,8 @@ import google.generativeai as genai
 app = Flask(__name__)
 model = whisper.load_model("base")
 
-# Set your Gemini API key here
-genai.configure(api_key="AIzaSyAzUG3TgCRBf5NTO44jqLbQA9jJa6X0Pkk")
+# Securely load API key from environment variables
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 @app.route("/transcribe", methods=["POST"])
 def transcribe():
@@ -43,8 +43,8 @@ def extract_key_points_with_gemini(text):
         )
 
         # Extract the generated key points from the Gemini response
-        key_points = response.text.strip()
-        return key_points if key_points else "No key points found."
+        key_points = response.candidates[0].text.strip() if response.candidates else "No key points found."
+        return key_points
     except Exception as e:
         print(f"Error calling Gemini API: {e}")
         return "Error generating key points."
