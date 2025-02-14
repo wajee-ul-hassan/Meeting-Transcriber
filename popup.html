@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Notes Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Meeting Notes Generator</h1>
+
+        <div class="controls">
+            <button id="toggleRecording" class="btn">Start Recording</button>
+            <span id="timer">00:00</span>
+        </div>
+
+        <div class="file-upload">
+            <label for="uploadFile" class="upload-label">
+                <span>Upload Audio File</span>
+                <input type="file" id="uploadFile" accept="audio/*">
+            </label>
+        </div>
+
+        <p id="status" class="status-text">Ready to record or upload.</p>
+
+        <div class="actions">
+            <button id="saveNotes" class="btn secondary">Save Notes</button>
+            <button id="saveTranscription" class="btn secondary">Download Transcription</button>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
