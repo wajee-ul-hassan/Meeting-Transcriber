@@ -1,2 +1,5 @@
-Flask
+flask
 openai-whisper
+google-generativeai
+torch
+torchaudio
